@@ -55,6 +55,27 @@ app.post("/order", (req, res) => {
         .catch((error) => {
           console.error(error);
         });
+
+      const ownerMsg = {
+        to: `patelravi.180180107048@gmail.com`, // Change to your recipient
+        from: "slntprdctn@gmail.com", // Change to your verified sender
+        subject: `${req.body.fullName} has submitted order request`,
+        text: "Hand to Hand Transportation",
+        html: `<div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Name:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.fullName}</span></div>
+            <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Email:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.email}</span></div>
+            <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Source Address:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.sourceAddress}</span></div>
+            <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Destination address:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.destinationAddress}</span></div>
+            <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Mobile No:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.mobileno}</span></div>
+            <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Description: </strong></span><span style='color: #80817f; font-size: 12px'>${req.body.description}</span></div>`,
+      };
+      sgMail
+        .send(ownerMsg)
+        .then(() => {
+          console.log("Email sent");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     })
     .catch((err) => {
       res.send("Server down, try again after sometime");
@@ -78,12 +99,31 @@ app.post("/contact", (req, res) => {
       const msg = {
         to: `${req.body.email}`, // Change to your recipient
         from: "slntprdctn@gmail.com", // Change to your verified sender
-        subject: "Order Request",
+        subject: `${req.body.fullName} has contact you`,
         text: "Hand to Hand Transportation",
         html: `<div style='width:auto; padding:3rem;background-color:rgba(49,114,163,1)'><div style='font-family:inherit; text-align: center;background-color:rgba(116,188,217,1);color:white'><div style='margin:2rem;padding:1.5rem;margin-bottom:0rem'><span style='font-size: 24px'><strong>Thanks for Contacting us</strong></span></div></div><div style='margin-top:0.5rem;background-color:rgba(255,255,255,1);font-family: inherit; text-align: inherit'><div style='margin-top:0.5rem;padding:1.5rem;padding-bottom:0rem'><span style='margin:2rem;font-size: 20px; font-family: &quot;trebuchet ms&quot;, helvetica, sans-serif; color: #656565'>Hi ${req.body.fullName},</span></div></div><div style='background-color:rgba(255,255,255,1);font-family: inherit; text-align: inherit'></div><div style='padding:1rem;padding-bottom:0.05rem;background-color:rgba(255,255,255,1);font-family: inherit; text-align: inherit'><div style='margin:2rem;margin-top:0rem'><span style='font-size: 20px; font-family: &quot;trebuchet ms&quot;, helvetica, sans-serif; color: #656565'>Some one will contact you shortly</span></div></div><div style='margin-top:0.5rem;background-color:rgba(255,255,255,1);font-family: inherit; text-align: inherit'><div style='margin:0.5rem;margin-bottom:0rem;padding:1.5rem;padding-bottom:0rem'><span style='font-family: &quot;trebuchet ms&quot;, helvetica, sans-serif; font-size: 16px; color: #656565'>Thanks!</span></div></div><div style='background-color:rgba(255,255,255,1);font-family: inherit; text-align: inherit'><div style='margin:2rem;margin-top:0rem;padding-top:0rem;padding-bottom:1.5rem'><span style='font-family: &quot;trebuchet ms&quot;, helvetica, sans-serif; font-size: 16px; color: #656565'>Hand To Hand Transportation</span></div></div></div>`,
       };
       sgMail
         .send(msg)
+        .then(() => {
+          console.log("Email sent");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+      const ownerMsg = {
+        to: `patelravi.180180107048@gmail.com`, // Change to your recipient
+        from: "slntprdctn@gmail.com", // Change to your verified sender
+        subject: `${req.body.fullName} wants to contact you`,
+        text: "Hand to Hand Transportation",
+        html: `<div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Name:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.fullName}</span></div>
+        <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Email:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.email}</span></div>
+        <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Mobile No:</strong></span><span style='color: #80817f; font-size: 12px'> ${req.body.mobileno}</span></div>
+        <div style='font-family: inherit; text-align: inherit'><span style='color: #80817f; font-size: 12px'><strong>Description: </strong></span><span style='color: #80817f; font-size: 12px'>${req.body.description}</span></div>`,
+      };
+      sgMail
+        .send(ownerMsg)
         .then(() => {
           console.log("Email sent");
         })
