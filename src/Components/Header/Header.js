@@ -47,8 +47,8 @@ function Header() {
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
             aria-expanded="false"
             aria-label="Toggle navigation"
             style={{ backgroundColor: "#ffc800", boxShadow: "none" }}
@@ -56,7 +56,7 @@ function Header() {
             Menu
             <i className="fas fa-bars ms-1"></i>
           </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
+          <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
               <li className="nav-item">
                 <a className="nav-link" href="#services">
