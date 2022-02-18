@@ -137,35 +137,42 @@ function Home() {
             </h3>
           </div>
           <div className="row text-center">
-            {vehicles.map((item) => {
-              return (
-                <div className="col-md-4">
-                  <span className="fa-stack fa-4x">
-                    <img
-                      style={{ width: "25rem", height: "15rem" }}
-                      src={item.imgUrl}
-                      alt={item.title}
-                    />
-                  </span>
-                  <h4 className="my-3">{item.title}</h4>
-                  <p className="text-muted">{item.description}</p>
-                  <button
-                    type="button"
-                    className="btn"
-                    style={{
-                      background: "Transparent",
-                      border: "solid 1px #0076d7",
-                      color: "#0076d7",
-                    }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    onClick={() => setFormTitle(item.title)}
-                  >
-                    Contact Agent
-                  </button>
-                </div>
-              );
-            })}
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              {vehicles.map((item) => {
+                return (
+                  <div class="col">
+                    <div class="card">
+                      <img
+                        src={item.imgUrl}
+                        class="card-img-top"
+                        style={{ height: "16rem" }}
+                        alt="..."
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">{item.title}</h5>
+                        <p class="card-text">{item.description}</p>
+                      </div>
+                      <div
+                        class="card-footer bg-transparent"
+                        style={{ border: "0px" }}
+                      >
+                        <button
+                          type="button"
+                          class="btn"
+                          style={{
+                            backgroundColor: "#0d6efd",
+                            color: "white",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Contact Agent
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
