@@ -40,7 +40,7 @@ function Home() {
       imgUrl:
         "https://trkcdn.tractorjunction.com/images/truck/supro-maxitruck-1614684208.jpg",
       description:
-        "The Mini Truck has 1615 KG of GVW and provides 70 Kmph maximum speed and and has a length of 3927 mm, width of 1540 mm and a wheelbase of 1950mm.",
+        "The Mini Truck has 1615 KG of GVW and provides 70 Kmph maximum speed and and has a length of 3927 mm, width of 1540 mm.",
     },
   ]);
 
@@ -137,33 +137,36 @@ function Home() {
             </h3>
           </div>
           <div className="row text-center">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div className="row row-cols-1 row-cols-md-3 g-4">
               {vehicles.map((item) => {
                 return (
-                  <div class="col">
-                    <div class="card">
+                  <div className="col">
+                    <div className="card">
                       <img
                         src={item.imgUrl}
-                        class="card-img-top"
+                        className="card-img-top"
                         style={{ height: "16rem" }}
                         alt="..."
                       />
-                      <div class="card-body">
-                        <h5 class="card-title">{item.title}</h5>
-                        <p class="card-text">{item.description}</p>
+                      <div className="card-body">
+                        <h5 className="card-title">{item.title}</h5>
+                        <p className="card-text">{item.description}</p>
                       </div>
                       <div
-                        class="card-footer bg-transparent"
+                        className="card-footer bg-transparent"
                         style={{ border: "0px" }}
                       >
                         <button
                           type="button"
-                          class="btn"
+                          className="btn"
                           style={{
                             backgroundColor: "#0d6efd",
                             color: "white",
                             fontWeight: "bold",
                           }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                          onClick={() => setFormTitle(item.title)}
                         >
                           Contact Agent
                         </button>
@@ -313,6 +316,17 @@ function Home() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="25"
+                fill="currentColor"
+                class="bi bi-truck"
+                viewBox="0 0 16 16"
+                style={{ marginBottom: "0.35rem" }}
+              >
+                <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+              </svg>
               <h5
                 style={{ textAlign: "center" }}
                 className="modal-title"
@@ -320,6 +334,7 @@ function Home() {
               >
                 {formTitle}
               </h5>
+              {/* <i className="bi bi-truck" style={{ width: "20rem" }}></i> */}
               <button
                 type="button"
                 className="btn-close"
